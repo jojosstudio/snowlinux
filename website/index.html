@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnowLeopardOS - Coming Soon</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
+            background: linear-gradient(to bottom, #0a80e1 0%, #0a5de1 100%);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .window {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(5px);
+        }
+        
+        .title-bar {
+            background: linear-gradient(to bottom, #e8e8e8 0%, #d1d1d1 100%);
+            border-radius: 8px 8px 0 0;
+            padding: 8px 12px;
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+            border-bottom: 1px solid #a0a0a0;
+            margin: -20px -20px 20px -20px;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to bottom, #333 0%, #111 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        p {
+            font-size: 1.2em;
+            margin: 20px 0;
+            color: #333;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23333" d="M50 15a35 35 0 1 0 0 70 35 35 0 0 0 0-70zm0 60a25 25 0 1 1 0-50 25 25 0 0 1 0 50zm-5-45h10v20h10v10H45V30z"/></svg>') no-repeat center;
+        }
+        
+        .dock {
+            position: fixed;
+            bottom: 20px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 16px;
+            padding: 12px 24px;
+            display: flex;
+            gap: 16px;
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                0 0 0 1px rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            height: 72px;
+            align-items: flex-end;
+        }
+        
+        .dock-icon {
+            width: 56px;
+            height: 56px;
+            background-size: 70%;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            position: relative;
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+        }
+        
+        .dock-icon:hover {
+            transform: scale(1.15) translateY(-10px);
+        }
+        
+        .dock-icon::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 5px;
+            height: 5px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        
+        .dock-icon:hover::after {
+            opacity: 1;
+        }
+        
+        .menu-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 5px 10px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            font-size: 0.9em;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .menu-item {
+            margin-right: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .time {
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-bar">
+        <div class="menu-item">❖ SnowLeopardOS</div>
+        <div class="menu-item">File</div>
+        <div class="menu-item">Edit</div>
+        <div class="menu-item">View</div>
+        <div class="menu-item">Help</div>
+        <div class="time" id="time">12:41 PM</div>
+    </div>
+    
+    <div class="logo"></div>
+    
+    <div class="window">
+        <div class="title-bar">SnowLeopardOS</div>
+        <h1>Coming Soon</h1>
+        <p>We're building a custom Ubuntu-based OS with the classic Mac OS X Snow Leopard aesthetic.</p>
+        <p>Stay tuned for the release!</p>
+    </div>
+    
+    <div class="dock">
+        <!-- Finder -->
+        <div class="dock-icon" 
+             style="background-image: url('finder.png')"
+             title="Finder"></div>
+             
+        <!-- Safari -->
+        <div class="dock-icon" 
+             style="background-image: url('safari-icon.png')"
+             title="Safari"></div>
+             
+        <!-- Mail -->
+        <div class="dock-icon" 
+             style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMDA3ZWZmIiBkPSJNNDQ4IDY0SDY0QzI4LjcgNjQgMCA5Mi43IDAgMTI4djk2djE5MnY2NGMwIDM1LjMgMjguNyA2NCA2NCA2NGgzODRjMzUuMyAwIDY0LTI4LjcgNjQtNjR2LTY0VjIyNHYtOTZjMC0zNS4zLTI4LjctNjQtNjQtNjR6bTAgMTI4bC0xOTIgMTI4TDY0IDE5MnYtNjRoMzg0djk2eiIvPjwvc3ZnPg==')"
+             title="Mail"></div>
+             
+        <!-- iTunes -->
+        <div class="dock-icon" 
+             style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMDA3ZWZmIiBkPSJNMjU2IDhDMTE5IDggOCAxMTkgOCAyNTZzMTExIDI0OCAyNDggMjQ4IDI0OC0xMTEgMjQ4LTI0OFMzOTMgOCAyNTYgOHptMCA0NDhjLTExMC41IDAtMjAwLTg5LjUtMjAwLTIwMFMxNDUuNSA1NiAyNTYgNTZzMjAwIDg5LjUgMjAwIDIwMC04OS41IDIwMC0yMDAgMjAwem0zNi4yLTE0OS4zbC0zMi4xLTM4LjktMzguOS0zMi4xTDI1NiAxOTJsLTQxLjItMTQuNy0zOC45IDMyLjEtMzIuMSAzOC45TDE5MiAyNTZsLTE0LjcgNDEuMiAzMi4xIDM4LjkgMzguOSAzMi4xTDI1NiAzMjBsNDEuMiAxNC43IDM4LjktMzIuMSAzMi4xLTM4LjlMMzIwIDI1NnptLTY0IDBsMTQuNyA0MS4yIDMyLjEgMzguOS0zOC45IDMyLjFMMjU2IDMyMGwtNDEuMiAxNC43LTM4LjktMzIuMSAzMi4xLTM4LjlMMTkyIDI1NmwtMTQuNy00MS4yLTMxLjktMzguOSAzOC45LTMyLjFMMjU2IDE5Mmw0MS4yLTE0LjcgMzguOSAzMi4xLTMxLjkgMzguOUwyNTYgMjU2eiIvPjwvc3ZnPg==')"
+             title="iTunes"></div>
+             
+        <!-- System Preferences -->
+        <div class="dock-icon" 
+             style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMDA3ZWZmIiBkPSJNNDk0LjEgMzUxLjRjLTEuOS0xLjktNC4xLTIuOS02LjYtMi45LTIuNSAwLTQuNyAxLTYuNiAyLjlsLTMxLjYgMzEuNi0xNy4zLTE3LjMgMzEuNi0zMS42YzEuOS0xLjkgMi45LTQuMSAyLjktNi42IDAtMi41LTEtNC43LTIuOS02LjZsLTMxLjYtMzEuNiAxNy4zLTE3LjMgMzEuNiAzMS42YzEuOSAxLjkgNC4xIDIuOSA2LjYgMi45IDIuNSAwIDQuNy0xIDYuNi0yLjkgMTkuMS0xOS4xIDE5LjEtNTAuMSAwLTY5LjJsLTMxLjYtMzEuNiAxNy4zLTE3LjMgMzEuNiAzMS42YzM4LjIgMzguMiAzOC4yIDEwMC4yIDAgMTM4LjR6bS0xNzYuMi0xNzYuMmMtMTkuMS0xOS4xLTUwLjEtMTkuMS02OS4yIDBsLTMxLjYgMzEuNiAxNy4zIDE3LjMgMzEuNi0zMS42YzEuOS0xLjkgNC4xLTIuOSA2LjYtMi45IDIuNSAwIDQuNyAxIDYuNiAyLjkgMS45IDEuOSAyLjkgNC4xIDIuOSA2LjYgMCAyLjUtMSA0LjctMi45IDYuNmwtMzEuNiAzMS42IDE3LjMgMTcuMyAzMS42LTMxLjZjMTkuMS0xOS4xIDE5LjEtNTAuMSAwLTY5LjJ6TTE2MC42IDE3LjlMMTI5IDQ5LjVjLTM4LjIgMzguMi0zOC4yIDEwMC4yIDAgMTM4LjRsMzEuNiAzMS42YzEuOSAxLjkgNC4xIDIuOSA2LjYgMi45IDIuNSAwIDQuNy0xIDYuNi0yLjkgMS45LTEuOSAyLjktNC4xIDIuOS02LjYgMC0yLjUtMS00LjctMi45LTYuNmwtMzEuNi0zMS42IDE3LjMtMTcuMyAzMS42IDMxLjZjMS45IDEuOSA0LjEgMi45IDYuNiAyLjkgMi41IDAgNC43LTEgNi42LTIuOSAxLjktMS45IDIuOS00LjEgMi45LTYuNiAwLTIuNS0xLTQuNy0yLjktNi42bC0zMS42LTMxLjYgMTcuMy0xNy4zIDMxLjYgMzEuNmMxOS4xIDE5LjEgMTkuMSA1MC4xIDAgNjkuMi0xLjkgMS45LTQuMSAyLjktNi42IDIuOS0yLjUgMC00LjctMS02LjYtMi45TDE2MC42IDI1M2MtMTkuMS0xOS4xLTE5LjEtNTAuMSAwLTY5LjJsMzEuNi0zMS42LTE3LjMtMTcuMy0zMS42IDMxLjZ6Ii8+PC9zdmc+')"
+             title="System Preferences"></div>
+             
+        <!-- Trash -->
+        <div class="dock-icon" 
+             style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMDA3ZWZmIiBkPSJNNDQ4IDk2YzAgMTcuNy0xNC4zIDMyLTMyIDMySDk2Yy0xNy43IDAtMzItMTQuMy0zMi0zMnYtNjRoNDE2djY0em0tNjQgMzJIMTI4djI1NmMwIDM1LjMgMjguNyA2NCA2NCA2NGgxOTJjMzUuMyAwIDY0LTI4LjcgNjQtNjRWMTI4em0tOTYgMTYwYzAgOC44LTcuMiAxNi0xNiAxNnMtMTYtNy4yLTE2LTE2di05NmMwLTguOCA3LjItMTYgMTYtMTZzMTYgNy4yIDE2IDE2djk2em05NiAwYzAgOC44LTcuMiAxNi0xNiAxNnMtMTYtNy4yLTE2LTE2di05NmMwLTguOCA3LjItMTYgMTYtMTZzMTYgNy4yIDE2IDE2djk2eiIvPjwvc3ZnPg==')"
+             title="Trash"></div>
+    </div>
+    
+    <script>
+        function updateTime() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            document.getElementById('time').textContent = `${hours}:${minutes} ${ampm}`;
+        }
+        
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
